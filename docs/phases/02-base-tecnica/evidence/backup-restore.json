@@ -1,0 +1,8 @@
+{
+  "source_database": "point_backup_1a40a71bdcf6",
+  "restored_database": "point_restore_20261028_184008_d3fac7",
+  "revision": "20261028_0001",
+  "synthetic_records_restored": 1,
+  "data_matches": true,
+  "application_database_modified": false
+}

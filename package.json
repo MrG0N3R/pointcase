@@ -1,0 +1,13 @@
+{
+  "name": "point-todo-en-uno",
+  "version": "0.2.0",
+  "private": true,
+  "workspaces": ["apps/web", "packages/shared"],
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {
+    "dev": "npm run dev --workspace @point/web",
+    "build": "npm run build --workspace @point/web",
+    "typecheck": "npm run typecheck --workspace @point/web",
+    "test:prototype": "node --test prototypes/phase-01/model.test.mjs"
+  }
+}

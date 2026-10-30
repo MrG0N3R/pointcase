@@ -1,0 +1,81 @@
+name: point-local
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: point_local_admin
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?Generate .env first}
+      POSTGRES_DB: point_dev
+      POINT_APP_PASSWORD: ${POSTGRES_PASSWORD:?Generate .env first}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - point_postgres:/var/lib/postgresql
+      - ./infrastructure/docker/init-db.sql:/docker-entrypoint-initdb.d/01-point.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U point_local_admin -d point_dev"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  migrate:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.api
+      target: runtime
+    environment: &api-environment
+      POINT_ENVIRONMENT: development
+      POINT_APP_NAME: ${POINT_APP_NAME:-POINT TODO EN UNO}
+      POINT_DATABASE_URL: postgresql+psycopg://point:${POSTGRES_PASSWORD:?Generate .env first}@db:5432/point_dev
+      POINT_DEFAULT_LOCALE: ${POINT_DEFAULT_LOCALE:-es-MX}
+      POINT_DEFAULT_CURRENCY: ${POINT_DEFAULT_CURRENCY:-MXN}
+      POINT_DEFAULT_TIMEZONE: ${POINT_DEFAULT_TIMEZONE:-America/Mexico_City}
+      POINT_CORS_ORIGINS: '[]'
+    command: ["python", "-m", "alembic", "upgrade", "head"]
+    depends_on:
+      db:
+        condition: service_healthy
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.api
+      target: runtime
+    environment: *api-environment
+    ports:
+      - "127.0.0.1:${POINT_API_PORT:-8000}:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=4)"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.web
+    ports:
+      - "127.0.0.1:${POINT_COMPOSE_WEB_PORT:-8080}:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:8080/"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+  tests:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.api
+      target: tests
+    environment:
+      <<: *api-environment
+      POINT_ENVIRONMENT: test
+      POINT_TEST_DATABASE_URL: postgresql+psycopg://point:${POSTGRES_PASSWORD:?Generate .env first}@db:5432/point_test
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  point_postgres:

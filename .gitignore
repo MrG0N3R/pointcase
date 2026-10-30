@@ -1,0 +1,23 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated data and development runtimes
+.local/
+.venv/
+node_modules/
+dist/
+coverage/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+*.log
+*.dump
+*.backup
+.DS_Store
+apps/web/public/diseno/
+

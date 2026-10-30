@@ -1,0 +1,8 @@
+# Direct production dependencies, verified against PyPI on 2026-10-28.
+fastapi==0.162.0
+uvicorn==0.54.0
+SQLAlchemy==2.1.6
+alembic==1.20.1
+psycopg[binary]==3.3.6
+pydantic-settings==2.16.2
+tzdata==2026.6

@@ -1,0 +1,12 @@
+.git
+.env
+.env.*
+.local
+.venv
+node_modules
+**/node_modules
+**/dist
+**/__pycache__
+**/.pytest_cache
+docs/phases/*/evidence
+*.dump

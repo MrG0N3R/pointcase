@@ -1,0 +1,16 @@
+{
+  "name": "@point/web",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node ../../infrastructure/scripts/prepare-web.mjs",
+    "dev": "vite --host 127.0.0.1 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "node ../../infrastructure/scripts/prepare-web.mjs",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174 --strictPort"
+  },
+  "dependencies": {"@point/shared": "0.2.0", "react": "19.3.1", "react-dom": "19.3.1"},
+  "devDependencies": {"@types/node": "26.6.5", "@types/react": "19.3.0", "@types/react-dom": "19.3.0", "@vitejs/plugin-react": "6.1.2", "typescript": "7.0.2", "vite": "8.3.5"}
+}
