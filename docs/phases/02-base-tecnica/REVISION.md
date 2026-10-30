@@ -2,9 +2,9 @@
 
 **Entrega:** base técnica ejecutable de POINT · versión 0.2.0.
 
-**Estado:** lista para revisión local. Diseño aprobado el 28 de octubre de 2026. La ejecución de contenedores sigue pendiente porque Docker no está instalado en este equipo. La Fase 03 no ha comenzado.
+**Estado:** lista para revisión, comprobada localmente y con contenedores en GitHub Actions. Diseño aprobado el 28 de octubre de 2026. La Fase 03 no ha comenzado.
 
-**Actualización del 30 de octubre:** la base ya está compartida en [GitHub](https://github.com/MrG0N3R/pointcase). Los resultados siguientes corresponden a la entrega local del día 28. La validación remota de contenedores y pruebas se consulta en [Actions](https://github.com/MrG0N3R/pointcase/actions); la publicación no constituye aprobación de fase ni despliegue comercial.
+**Actualización del 30 de octubre:** la base ya está compartida en [GitHub](https://github.com/MrG0N3R/pointcase). A la evidencia local del día 28 se suma la [ejecución remota aprobada](https://github.com/MrG0N3R/pointcase/actions/runs/41124362283) del commit `b9fc4ab`: instalación limpia, contratos, compilación, contenedores, pruebas y disponibilidad HTTP. La publicación no constituye aprobación de fase ni despliegue comercial.
 
 ## 1. Resumen
 
@@ -18,7 +18,7 @@ Esta entrega prepara el sistema. Todavía no permite crear cuentas de comercios,
 - `apps/api`: servidor modular, configuración validada, errores, registros y módulos system/jobs.
 - `packages/shared`: tipos TypeScript generados desde el OpenAPI real.
 - `infrastructure`: preparación local, migraciones, respaldo/restauración, Docker/Compose y Nginx.
-- Repositorio Git inicializado localmente, sin remoto ni publicación.
+- Repositorio Git compartido en `MrG0N3R/pointcase`, rama `main`, con guía para colaboradores y comprobaciones en cada push/pull request.
 
 Los parámetros de instalación (idioma, moneda, zona, orígenes y conexiones) se leen de configuración. Los parámetros por cliente se incorporarán con empresas y permisos; no se usa una configuración global como sustituto del aislamiento SaaS.
 
@@ -72,7 +72,7 @@ Autenticación, permisos, membresías, auditoría comercial y aislamiento de acc
 | Interrupción de PostgreSQL | Live 200; ready 503; aviso visible; recuperación posterior a 200 conservando datos |
 | Respaldo y restauración | Un registro ficticio se conservó en una base nueva; [evidencia](evidence/backup-restore.json) |
 | Pantalla adaptable | Escritorio y móvil revisados; navegación móvil sin desbordamiento horizontal de página |
-| Docker / CI | Archivos definidos. Contenedores y ejecución remota de CI **no ejecutados** en este equipo |
+| Docker / CI | Construcción, arranque, pruebas y disponibilidad HTTP **aprobados en GitHub Actions el 30 de octubre**; Docker no instalado en este equipo Windows |
 
 Se verificaron además enlaces locales, sintaxis YAML y rutas de archivos de Compose, conservación del maestro/prototipo e inexistencia de contraseñas locales en los archivos versionables y el paquete web. [Reporte de integridad](evidence/project-checks.json). La validación YAML no equivale a una ejecución de Docker.
 
@@ -100,12 +100,12 @@ Al terminar, Ctrl+C detiene web/API. Para detener la base propia, ejecutar `loca
 - [x] Respaldo/restauración independiente con datos de prueba verificados.
 - [x] Arranque local, documentación y cambios registrados.
 - [x] Dockerfiles, Compose, Nginx y flujo CI definidos.
-- [ ] Construcción y ejecución real de contenedores en un equipo con Docker.
+- [x] Construcción y ejecución real de contenedores en Linux mediante GitHub Actions.
 - [ ] Usuario revisó esta entrega y confirmó avanzar.
 
 ## 10. Pendientes
 
-Validar el recorrido de contenedores y CI cuando exista un motor Docker; no se sustituye esa validación por las pruebas nativas. Las bases nativas y el volumen Docker son almacenes independientes.
+La revisión del usuario sigue pendiente. El recorrido Docker ya está comprobado en CI; no se ha instalado un motor Docker en este equipo Windows. Las bases nativas y el volumen Docker son almacenes independientes.
 
 Después de revisar esta base y acordar continuar: **Fase 03, acceso, empresas, sucursales y permisos**, incluidos los controles y pruebas de separación de información entre clientes. Los parámetros particulares del negocio se ajustarán progresivamente como solicitó el usuario.
 

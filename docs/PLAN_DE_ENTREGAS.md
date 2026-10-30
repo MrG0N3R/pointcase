@@ -14,7 +14,7 @@ Estados: **Pendiente → En desarrollo → Lista para revisión → Con ajustes 
 | --- | --- | --- | --- |
 | 00 · Definición | Alcance, reglas, módulos, backlog, arquitectura y modelo de datos inicial | Qué necesita el negocio, qué entra primero y qué se aplaza | Aprobada |
 | 01 · Diseño y navegación | Identidad, componentes y prototipo de alta del negocio, POS, cobro, producto, inventario, caja y resumen | Recorrido en computadora, tableta y móvil; claridad y facilidad para vender | Aprobada |
-| 02 · Base técnica | Aplicación web, API modular, PostgreSQL, migraciones, Docker, configuración, registros y verificación automática | Arranque local y estado de los servicios; ejecución Docker pendiente | Lista para revisión local |
+| 02 · Base técnica | Aplicación web, API modular, PostgreSQL, migraciones, Docker, configuración, registros y verificación automática | Arranque local, estado de servicios y ejecución Docker aprobada en CI | Lista para revisión |
 | 03 · Acceso y empresas | Registro, inicio y recuperación de sesión, negocio, sucursales, almacenes, usuarios, roles, permisos y auditoría | Dos empresas con información separada y empleados con acceso limitado | Pendiente |
 | 04 · Catálogo | Productos, servicios, categorías, variantes, códigos, precios, impuestos e importación CSV/XLSX | Capturar e importar un catálogo; detectar errores sin perder información | Pendiente |
 | 05 · Inventario | Existencias, movimientos, Kardex, entradas, salidas, ajustes, conteos, transferencias y alertas | Explicar cada cambio de stock y recibir una transferencia parcial | Pendiente |
@@ -65,6 +65,6 @@ Puntos, monedero, crédito, apartados, comercio electrónico, cuentas por cobrar
 | --- | --- | --- | --- |
 | 00 | Definición documental preparada | Aprobada por el usuario: «ok, sigamos» | Continuar con Fase 01 |
 | 01 | Prototipo navegable local y capturas de escritorio/tableta/móvil | Aprobada el 2026-10-28: «El diseño me parece bien» | Continuar con Fase 02 |
-| 02 | Web/API/PostgreSQL, migraciones, contratos, pruebas y recuperación | Pendiente | Revisar [base ejecutable y límites](phases/02-base-tecnica/REVISION.md); probar Docker cuando esté disponible |
+| 02 | Web/API/PostgreSQL, migraciones, contratos, pruebas, recuperación y Docker/CI comprobados | Pendiente | Revisar [base ejecutable y límites](phases/02-base-tecnica/REVISION.md) |
 
-Fases 00 y 01 aprobadas. Fase 02 lista para revisión local, con validación de contenedores pendiente. Fase 03 sin comenzar. Los parámetros específicos por cliente se ajustarán progresivamente, según la confirmación del usuario.
+Fases 00 y 01 aprobadas. Fase 02 lista para revisión, con validación local y de contenedores en GitHub Actions. Fase 03 sin comenzar. Los parámetros específicos por cliente se ajustarán progresivamente, según la confirmación del usuario.

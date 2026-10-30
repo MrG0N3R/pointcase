@@ -1,6 +1,6 @@
 # Ejecución y despliegue
 
-**Estado:** Fase 02 ejecutable localmente. Sin autenticación ni operaciones comerciales reales; contenedores definidos pero no ejecutados en este equipo.
+**Estado:** Fase 02 comprobada localmente y con contenedores en GitHub Actions. Sin autenticación ni operaciones comerciales reales.
 
 ## Empezar en este equipo
 
@@ -84,9 +84,9 @@ Para repetir el ensayo completo con un registro ficticio en bases nuevas indepen
 
 El resultado comprobado está en [backup-restore.json](docs/phases/02-base-tecnica/evidence/backup-restore.json). Las bases del ensayo se conservan para revisión. Este procedimiento valida recuperación local; no implementa todavía copias programadas fuera del servidor, cifrado operativo ni los objetivos de RPO/RTO de producción.
 
-## Alternativa Docker Compose · pendiente de ejecución
+## Alternativa Docker Compose
 
-No se instaló Docker en este equipo ni se afirma haber construido las imágenes. Antes de considerar comprobado este recorrido, ejecutarlo en un equipo con motor Docker y Compose disponibles:
+El recorrido se comprobó en Linux mediante [GitHub Actions](https://github.com/MrG0N3R/pointcase/actions/runs/41124362283). En este equipo Windows no se instaló Docker. Para reproducirlo, usar un equipo con motor Docker y Compose disponibles:
 
 ```powershell
 python infrastructure/scripts/configure_env.py
@@ -99,7 +99,7 @@ Abrir `http://127.0.0.1:8080/`. PostgreSQL debe estar saludable antes de migrar;
 
 Usar el modo nativo o Docker, no ambos en los mismos puertos. El volumen Compose y `.local/postgres/data` tienen datos independientes. Detener con `docker compose down` conserva el volumen; no agregar opciones de eliminación de datos.
 
-El [flujo CI](.github/workflows/ci.yml) instala versiones fijadas, verifica contratos, compila web, arranca Compose y ejecuta pruebas. El repositorio ya está compartido en [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase); el flujo se activa con push y pull request. Consultar [Actions](https://github.com/MrG0N3R/pointcase/actions) para el resultado de cada commit. La primera ejecución permitió detectar una ruta de pruebas incompatible con `/app`, corregida junto con su prueba de regresión.
+El [flujo CI](.github/workflows/ci.yml) instala versiones fijadas, verifica contratos, compila web, arranca Compose y ejecuta pruebas. El repositorio ya está compartido en [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase); el flujo se activa con push y pull request. Consultar [Actions](https://github.com/MrG0N3R/pointcase/actions) para el resultado de cada commit. La primera ejecución permitió detectar una ruta de pruebas incompatible con `/app`, corregida junto con su prueba de regresión. El commit `b9fc4ab` aprobó todos los pasos, incluida la consulta de disponibilidad mediante el proxy web.
 
 ## Revisar la Fase 01
 

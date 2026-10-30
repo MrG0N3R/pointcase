@@ -8,6 +8,7 @@
 - Se identificó `MrG0N3R/pointcase` como destino indicado por el usuario. Esta preparación no aprueba la Fase 02 ni inicia la 03.
 - Se publicó la base inicial en `main` (commit `3ebc7ba`) y se activó el flujo de GitHub Actions.
 - La primera ejecución remota construyó y arrancó los servicios; se corrigió la resolución de la raíz en las pruebas para la estructura `/app` del contenedor y se amplió la prueba de empaquetado para cubrir también conftest.
+- La [ejecución remota del commit b9fc4ab](https://github.com/MrG0N3R/pointcase/actions/runs/41124362283) aprobó todos los pasos: instalación, contratos, compilación, contenedores, pruebas y disponibilidad HTTP. Se actualizó el estado de la entrega; su aprobación por el usuario sigue pendiente.
 
 ## 2026-10-28 · 0.2.0 · Fase 02 lista para revisión local
 

@@ -44,7 +44,7 @@ Este reparto organiza trabajo humano; no declara la fase iniciada ni asigna pers
 | Permisos y auditoría | Roles como plantillas, permisos por acción y alcance; eventos sensibles | Dos empresas/sucursales no acceden a datos ajenos por cambiar IDs |
 | Interfaz | Pantallas reales de acceso, alta de negocio, colaboradores y configuración | Integración con contratos de API y estados de error/carga |
 | Personalización | Configuración validada por empresa, identidad y capacidades de módulos existentes | Empresas A/B con configuraciones distintas; autorización en servidor |
-| Calidad e infraestructura | Pruebas de separación, instalación y primera ejecución Docker/CI | Evidencia de resultados; registrar lo que siga sin comprobarse |
+| Calidad e infraestructura | Pruebas de separación, instalación y mantenimiento de Docker/CI | Evidencia de resultados; registrar lo que siga sin comprobarse |
 
 Coordinar las migraciones y el contrato de API antes de desarrollar en paralelo sus consumidores. Las funcionalidades de catálogo, inventario y ventas conservan sus fases posteriores.
 

@@ -4,7 +4,7 @@ Punto de venta SaaS para pequeñas y medianas empresas en México: ventas, cobro
 
 ## Estado actual
 
-**Fases 00 y 01 aprobadas. Fase 02: base ejecutable lista para revisión local, con ejecución Docker pendiente.**
+**Fases 00 y 01 aprobadas. Fase 02: base ejecutable lista para revisión, comprobada localmente y con Docker en GitHub Actions.**
 
 Ya funcionan React/TypeScript, FastAPI y PostgreSQL de desarrollo, con migraciones, estado de conexión, contratos compartidos y respaldo/restauración comprobados. El prototipo aprobado se conserva por separado. Registro, empresas, permisos y funcionalidades comerciales comienzan en las siguientes fases; todavía no se realizan ventas reales.
 
@@ -22,7 +22,7 @@ La base técnica actual puede compartirse para continuar el desarrollo. El casca
 2. Entrar a Estado de conexión y consultar los resultados y límites de la [Fase 02](docs/phases/02-base-tecnica/REVISION.md).
 3. Revisar esta parte antes de comenzar la Fase 03. Las instrucciones de instalación, inicio, pruebas y recuperación están en [DEPLOYMENT.md](DEPLOYMENT.md).
 
-Docker no está instalado en este equipo. La aplicación se comprobó localmente con PostgreSQL nativo y una instalación Python limpia; tras compartir el repositorio, GitHub Actions construye y ejecuta los contenedores para comprobar también ese entorno. El resultado vigente se consulta en Actions.
+Docker no está instalado en este equipo. La aplicación se comprobó localmente con PostgreSQL nativo y una instalación Python limpia. La [ejecución de GitHub Actions del 30 de octubre](https://github.com/MrG0N3R/pointcase/actions/runs/41124362283) también aprobó compilación, arranque de contenedores, pruebas y conexión de servicios.
 
 **Forma de trabajo acordada:** desarrollar una parte, entregar evidencia e instrucciones para revisarla y esperar la confirmación del usuario antes de empezar la siguiente. Una entrega preparada no equivale a una entrega aprobada.
 
