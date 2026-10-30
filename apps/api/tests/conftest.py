@@ -10,10 +10,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine import make_url
 from sqlalchemy.orm import Session
 
-from point.core.config import Settings
+from point.core.config import PROJECT_ROOT, Settings
 
 API = Path(__file__).resolve().parents[1]
-ROOT = API.parents[1]
+ROOT = PROJECT_ROOT
 
 
 @pytest.fixture

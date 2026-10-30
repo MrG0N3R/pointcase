@@ -99,7 +99,7 @@ Abrir `http://127.0.0.1:8080/`. PostgreSQL debe estar saludable antes de migrar;
 
 Usar el modo nativo o Docker, no ambos en los mismos puertos. El volumen Compose y `.local/postgres/data` tienen datos independientes. Detener con `docker compose down` conserva el volumen; no agregar opciones de eliminación de datos.
 
-El [flujo CI](.github/workflows/ci.yml) instala versiones fijadas, verifica contratos, compila web, arranca Compose y ejecuta pruebas. Está definido para su futura ejecución al conectar un repositorio remoto; no se ha ejecutado en GitHub ni se publicaron estos archivos fuera del equipo.
+El [flujo CI](.github/workflows/ci.yml) instala versiones fijadas, verifica contratos, compila web, arranca Compose y ejecuta pruebas. El repositorio ya está compartido en [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase); el flujo se activa con push y pull request. Consultar [Actions](https://github.com/MrG0N3R/pointcase/actions) para el resultado de cada commit. La primera ejecución permitió detectar una ruta de pruebas incompatible con `/app`, corregida junto con su prueba de regresión.
 
 ## Revisar la Fase 01
 

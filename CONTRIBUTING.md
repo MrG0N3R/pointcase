@@ -1,6 +1,6 @@
 # Desarrollo en equipo de POINT
 
-Repositorio de destino: [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase).
+Repositorio: [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase), rama principal `main`.
 
 ## Estado que recibe el equipo
 
@@ -17,7 +17,7 @@ cd pointcase
 
 Seguir [DEPLOYMENT.md](DEPLOYMENT.md) para crear el entorno Python, instalar las versiones fijadas con pip/npm y preparar PostgreSQL propio. Cada colaborador genera su `.env` y sus bases; esos archivos no viajan en el repositorio. No copiar la carpeta `.local` de otra persona.
 
-Node 24, Python 3.12 y PostgreSQL 18 son la referencia comprobada. El modo Docker está definido, pero su construcción y ejecución requieren validación. `Iniciar POINT.cmd` es un acceso para Windows una vez instaladas las dependencias; en otros sistemas usar los comandos Python de la guía.
+Node 24, Python 3.12 y PostgreSQL 18 son la referencia local comprobada. GitHub Actions valida adicionalmente la construcción y ejecución Docker; revisar el resultado del commit correspondiente. `Iniciar POINT.cmd` es un acceso para Windows una vez instaladas las dependencias; en otros sistemas usar los comandos Python de la guía.
 
 ## Ramas y revisión de cambios
 

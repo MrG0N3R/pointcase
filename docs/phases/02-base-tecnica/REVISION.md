@@ -4,6 +4,8 @@
 
 **Estado:** lista para revisión local. Diseño aprobado el 28 de octubre de 2026. La ejecución de contenedores sigue pendiente porque Docker no está instalado en este equipo. La Fase 03 no ha comenzado.
 
+**Actualización del 30 de octubre:** la base ya está compartida en [GitHub](https://github.com/MrG0N3R/pointcase). Los resultados siguientes corresponden a la entrega local del día 28. La validación remota de contenedores y pruebas se consulta en [Actions](https://github.com/MrG0N3R/pointcase/actions); la publicación no constituye aprobación de fase ni despliegue comercial.
+
 ## 1. Resumen
 
 Se creó la aplicación React/TypeScript, un servidor FastAPI modular y PostgreSQL de desarrollo separado de las bases existentes. La aplicación consulta una conexión real, detecta si faltan actualizaciones de datos y muestra errores recuperables. Se conservó el prototipo aprobado como referencia independiente.

@@ -95,8 +95,10 @@ def test_packaged_layout_loads_without_repository_ancestors(tmp_path, unit_setti
     package = tmp_path / "service"
     package.mkdir()
     shutil.copytree(Path(__file__).resolve().parents[1] / "point", package / "point", ignore=shutil.ignore_patterns("__pycache__"))
+    (package / "tests").mkdir()
+    shutil.copyfile(Path(__file__).resolve().parent / "conftest.py", package / "tests/conftest.py")
     environment = {**os.environ, "POINT_ENVIRONMENT": "test", "POINT_DATABASE_URL": unit_settings.database_url.get_secret_value()}
-    result = subprocess.run([sys.executable, "-c", "from pathlib import Path; from point.core.config import PROJECT_ROOT; from point.main import create_app; assert PROJECT_ROOT == Path.cwd(); app = create_app(); assert app.version == '0.2.0'; app.state.engine.dispose()"], cwd=package, env=environment, capture_output=True, text=True)
+    result = subprocess.run([sys.executable, "-c", "from pathlib import Path; import runpy; from point.core.config import PROJECT_ROOT; from point.main import create_app; assert PROJECT_ROOT == Path.cwd(); assert runpy.run_path('tests/conftest.py')['ROOT'] == Path.cwd(); app = create_app(); assert app.version == '0.2.0'; app.state.engine.dispose()"], cwd=package, env=environment, capture_output=True, text=True)
     assert result.returncode == 0, "La API debe poder cargarse fuera del árbol del repositorio."
 
 

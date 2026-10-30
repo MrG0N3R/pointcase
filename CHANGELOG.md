@@ -6,6 +6,8 @@
 - Se añadió guía para colaboradores con instalación, propuesta de reparto de tareas, ramas, contratos y criterios de revisión.
 - Se añadió plantilla de pull request y se fijó la conservación del archivo maestro sin conversión de saltos de línea.
 - Se identificó `MrG0N3R/pointcase` como destino indicado por el usuario. Esta preparación no aprueba la Fase 02 ni inicia la 03.
+- Se publicó la base inicial en `main` (commit `3ebc7ba`) y se activó el flujo de GitHub Actions.
+- La primera ejecución remota construyó y arrancó los servicios; se corrigió la resolución de la raíz en las pruebas para la estructura `/app` del contenedor y se amplió la prueba de empaquetado para cubrir también conftest.
 
 ## 2026-10-28 · 0.2.0 · Fase 02 lista para revisión local
 

@@ -53,7 +53,7 @@ for service in compose["services"].values():
 assert yaml.safe_load((ROOT / ".github/workflows/ci.yml").read_text())["jobs"]["verify"]["steps"]
 report = {"date": datetime.now(ZoneInfo("America/Mexico_City")).date().isoformat(), "local_links_checked": links, "master_unchanged": True, "approved_prototype_preserved": True,
           "private_state_ignored": True, "local_secrets_absent_from_source_and_web_build": True,
-          "compose_yaml_and_paths_checked": True, "docker_runtime_executed": False, "remote_ci_executed": False}
+          "compose_yaml_and_paths_checked": True, "docker_runtime_executed_locally": False, "remote_ci_checked_by_this_script": False}
 destination = ROOT / "docs/phases/02-base-tecnica/evidence/project-checks.json"
 destination.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(report, indent=2))

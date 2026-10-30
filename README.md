@@ -12,7 +12,7 @@ Fuente de requisitos: [documento maestro](POINT_Todo_en_Uno_Prompt_Maestro_PyMEs
 
 ## Desarrollo con colaboradores
 
-Repositorio de destino: [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase). Leer [CONTRIBUTING.md](CONTRIBUTING.md) para clonar, preparar el entorno y organizar las tareas. El [hito de cascarón SaaS](docs/HITO_CASCARON_SAAS.md) explica lo disponible ahora y lo necesario para personalizar por negocio.
+Repositorio: [MrG0N3R/pointcase](https://github.com/MrG0N3R/pointcase), rama principal `main`. Leer [CONTRIBUTING.md](CONTRIBUTING.md) para clonar, preparar el entorno y organizar las tareas. El [hito de cascarón SaaS](docs/HITO_CASCARON_SAAS.md) explica lo disponible ahora y lo necesario para personalizar por negocio. Consultar [GitHub Actions](https://github.com/MrG0N3R/pointcase/actions) para el resultado de cada comprobación remota.
 
 La base técnica actual puede compartirse para continuar el desarrollo. El cascarón SaaS personalizable requiere cerrar acceso/empresas/permisos y configuración por empresa en la Fase 03. Un núcleo de POS operativo requiere además las fases 04–07.
 
@@ -22,7 +22,7 @@ La base técnica actual puede compartirse para continuar el desarrollo. El casca
 2. Entrar a Estado de conexión y consultar los resultados y límites de la [Fase 02](docs/phases/02-base-tecnica/REVISION.md).
 3. Revisar esta parte antes de comenzar la Fase 03. Las instrucciones de instalación, inicio, pruebas y recuperación están en [DEPLOYMENT.md](DEPLOYMENT.md).
 
-Dockerfiles, Compose, Nginx y CI están definidos; no se ha ejecutado Docker porque no está instalado en este equipo. La aplicación sí se comprobó con PostgreSQL nativo y una instalación Python limpia.
+Docker no está instalado en este equipo. La aplicación se comprobó localmente con PostgreSQL nativo y una instalación Python limpia; tras compartir el repositorio, GitHub Actions construye y ejecuta los contenedores para comprobar también ese entorno. El resultado vigente se consulta en Actions.
 
 **Forma de trabajo acordada:** desarrollar una parte, entregar evidencia e instrucciones para revisarla y esperar la confirmación del usuario antes de empezar la siguiente. Una entrega preparada no equivale a una entrega aprobada.
 
